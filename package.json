@@ -1,0 +1,30 @@
+{
+    "name": "htmlcss",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "shortid": "^2.2.8",
+        "path": "^0.12.7",
+        "through2": "^2.0.3"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.1.2",
+        "cssnano": "^3.10.0",
+        "postcss": "^6.0.8",
+        "gulp": "^3.9.1",
+        "gulp-concat-css": "^2.3.0",
+        "gulp-postcss": "^7.0.0",
+        "gulp-serve": "^1.4.0",
+        "gulp-encapsulate-htmlcss": "^1.0.1",
+        "gulp-file": "^0.3.0",
+        "gulp-file-include": "^1.1.0",
+        "gulp-util": "^3.0.8",
+        "gulp-stylus": "^2.6.0"
+    }
+}
