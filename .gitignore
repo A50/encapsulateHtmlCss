@@ -1,2 +1,27 @@
+# compiled output
+/dist
+/tmp
+
+# dependencies
 /node_modules
-/build
+/bower_components
+.npmrc
+
+# IDEs and editors
+/.idea
+/.vscode
+.project
+.classpath
+*.launch
+.settings/
+
+#
+npm-debug.log
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
