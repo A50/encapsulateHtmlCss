@@ -14,6 +14,7 @@ const plugins = [
     cssnano()
 ];
 
+// Преобразуем styl в css
 gulp.task('styl', () => {
     gulp.src(['./src/styl/*.styl'])
         .pipe(stylus())
@@ -23,13 +24,16 @@ gulp.task('styl', () => {
         .pipe(gulp.dest('./src/components/'));
 
 });
+
+// Добавляем уникальный атрибут файлам, которые лежат в каталоге компонента
 gulp.task('encapsulate', ['styl'], () => {
 
     return gulp.src(['./src/components/*/*.*'])
         .pipe(encapsulateHtmlCss())
         .pipe(gulp.dest('./build/components'))
-})
+});
 
+// Склеиваем все css в один файл
 gulp.task('cssBundler', ['encapsulate'], () => {
     return gulp.src(['./src/styl/*.css', './build/**/*.css'])
         .pipe(concatCss("css/bundle.css"))
@@ -37,6 +41,7 @@ gulp.task('cssBundler', ['encapsulate'], () => {
         .pipe(gulp.dest('./build/'));
 });
 
+// Инжектим компоненты на страницу
 gulp.task('fileinclude', ['encapsulate'], () => {
     return gulp.src(['./src/index.html'])
         .pipe(fileinclude({
@@ -46,9 +51,13 @@ gulp.task('fileinclude', ['encapsulate'], () => {
         .pipe(gulp.dest('./build'));
 
 });
+
+// Копируем картинки
 gulp.task('copyImages', () => {
     return gulp.src('./src/images/**/*.*')
         .pipe(gulp.dest('./build/images'))
-})
+});
+
+// Запускаем сервак
 gulp.task('serve', serve('./build'));
 gulp.task('default', ['styl', 'encapsulate', 'cssBundler', 'fileinclude', 'copyImages', 'serve']);
